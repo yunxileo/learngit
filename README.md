@@ -20,21 +20,37 @@
 
 目前，在GitHub上的这个learngit仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。
 
+
 现在，我们根据GitHub的提示，在本地的learngit仓库下运行命令：
 
+```
+$ git remote add origin git@github.com:yunxileo/learngit.git
+```
+
+然后，发现报错：
+```
+“fatal: remote origin already exists”
+```
+修改命令为：```git remote add github git@github.com:yunxileo/learngit.git ```
+
+接着push依然报错：
 
 ```
-$ git remote add origin git@github.com:yunxileo/gitskills.git
-```
-
-之后可以用命令：
+git push github master
 
 ```
-$ git push origin master
+
+之后可以用 ``` -fu ``` 命令：
+
 ```
+$ git push -fu github master
+```
+
 
 请千万注意，把上面的yunxileo替换成你自己的GitHub账户名，否则，你在本地关联的就是我的远程库，关联没有问题，但是你以后推送是推不上去的，因为你的SSH Key公钥不在我的账户列表中。
 
 添加后，远程库的名字就是```origin```，这是Git默认的叫法，也可以改成别的，但是```origin```这个名字一看就知道是远程库。
 
+
 下一步，就可以把本地库的所有内容推送到远程库上：
+
